@@ -4,7 +4,7 @@
 
 ## Overview
 
-Machine Learning (ML) is the core of AIRA, responsible for analyzing and evaluating piano performance based on user-uploaded audio. Our ML models are designed to classify mistakes related to note accuracy, rhythm timing, and chord structures, offering users real-time, detailed feedback to improve their musical performance. The workflow involves analyzing user-uploaded MIDI files and comparing them to ideal references. Mistakes are categorized into four types: 
+Machine Learning (ML) is the core of AIRA, responsible for analyzing and evaluating piano performance based on user-uploaded audio. Machine learning model is designed to classify piano performance mistakes. The model analyzes user-uploaded MIDI files by comparing them to ideal reference MIDI files, identifying and categorizing mistakes into four types: 
 1. Wrong Note
 2. Missing Note
 3. Extra Note
@@ -27,10 +27,14 @@ Machine Learning (ML) is the core of AIRA, responsible for analyzing and evaluat
 A custom synthetic dataset created using the [Twinkle Twinkle Little Star](https://musescore.com/juliathezhu/twinkle-twinkle-little-star-easy) to train the model and simulate piano mistake recognition. These methods are inspired by approaches outlined in the [paper](https://repositori.upf.edu/bitstream/handle/10230/60657/morsi_SMC_simu.pdf?sequence=1&isAllowed=y) and are applied to identify and correct musical mistakes.
 
 ## Model Architecture
-Our model employs a **Feedforward Neural Network** (FNN) for piano mistake detection:
-- **Input**: Extracted audio features (MFCC, chroma, tempo).
-- **Hidden** Layers: Fully connected layers with ReLU activation.
-- **Output**: Piano mistake predictions using softmax for classification.
+Our model employs a **Feedforward Neural Network** (FNN) for piano mistake detection
+- **Input**: Variable input shape
+- **Hidden Layer** Layers
+  - 16 neurons
+  - ReLU activation
+- **Batch Normalization**
+- **Dropout (10%)**
+- **Output Layer**: Softmax activation for multi-class classification
 
 ## Results
 The following metrics are used to evaluate the model's performance for each type of piano mistake:
@@ -58,6 +62,7 @@ The following metrics are used to evaluate the model's performance for each type
 🚀 Set up your machine learning environment
 [Click here for machine learning Setup Guide](https://github.com/TCHWG/)
 
-
-
-
+## Potential Improvements
+- Implement cross-validation to enhance the model's robustness and prevent overfitting
+- Explore alternative audio representations such as spectrograms or piano rolls, to capture different musical features
+- Experiment with deeper neural network architectures to improve performance and accuracy
