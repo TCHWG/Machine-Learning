@@ -4,54 +4,53 @@
 
 ## Overview
 
-Machine Learning (ML) is the core of AIRA, responsible for analyzing and evaluating piano performance based on user-uploaded audio. Our ML models are designed to recognize notes, rhythm accuracy, and chord structures, providing users with real-time and detailed feedback.
-
-## Feature
-### 🎯 Key ML Functionalities:
-- **Audio Preprocessing**: Extract features such as pitch, tempo, and chroma using Librosa.
-- **Chord Recognition**: Detect and match chords with ideal references using a deep learning model.
-- **Real-Time Feedback**: Analyze user performance and provide actionable improvement suggestions.
-- **Progress Tracking**: Monitor and evaluate users’ skill improvements over time.
+Machine Learning (ML) is the core of AIRA, responsible for analyzing and evaluating piano performance based on user-uploaded audio. Our ML models are designed to classify mistakes related to note accuracy, rhythm timing, and chord structures, offering users real-time, detailed feedback to improve their musical performance. The workflow involves analyzing user-uploaded MIDI files and comparing them to ideal references. Mistakes are categorized into four types: 
+1. Wrong Note
+2. Missing Note
+3. Extra Note
+4. No Error
 
 ## Technology Stack
 ### Libraries and Frameworks
-| Library        | Functionality              |
+| Library            | Functionality              |
 |:------------------:|:--------------------------|
 | TensorFlow         | Build and train neural network models           | 
 | Keras              | High-level API for neural network design        | 
-| Librosa            | Audio feature extraction (pitch, chroma, tempo) | 
+| Librosa & pretty_midi          | Audio feature extraction (pitch, chroma, tempo) | 
 | NumPy              | Numerical computations                          | 
 | Pandas             | Dataset manipulation and analysis               | 
 
 ## Dataset
-- **Kaggle Piano Dataset**: Primary dataset for training the model.
-- **Magenta Dataset**: Secondary dataset for chord variety.
-
-### Data Preprocessing Steps:
-1. Clean audio data to remove noise.
-2. Standardize audio file lengths.
-3. Extract features using Librosa (pitch, chroma, tempo).
-4. Save processed data in CSV format for training.
+A custom synthetic dataset created using the [Twinkle Twinkle Little Star](https://musescore.com/juliathezhu/twinkle-twinkle-little-star-easy) to train the model and simulate piano mistake recognition. These methods are inspired by approaches outlined in the [paper](https://repositori.upf.edu/bitstream/handle/10230/60657/morsi_SMC_simu.pdf?sequence=1&isAllowed=y) and are applied to identify and correct musical mistakes.
 
 ## Model Architecture
-Our model employs a **Deep Neural Network** (DNN) for note and chord detection:
+Our model employs a **Feedforward Neural Network** (FNN) for piano mistake detection:
 - **Input**: Extracted audio features (MFCC, chroma, tempo).
 - **Hidden** Layers: Fully connected layers with ReLU activation.
-- **Output**: Note and chord predictions using softmax for classification.
-### Training Details:
-- **Loss Function**: Categorical Crossentropy
-- **Optimizer**: Adam
-- **Evaluation Metrics**: Accuracy, Precision, Recall
+- **Output**: Piano mistake predictions using softmax for classification.
 
-## Performance Metrics
-| Metric              | Value              |
-|:------------------  |:--------------------------|
-| Training Accuracy   | 92%        | 
-| Validation Accuracy | 89%        | 
-| Precision           | 88%        | 
-| Recal               | 87%        | 
+## Results
+The following metrics are used to evaluate the model's performance for each type of piano mistake:
+- ROC AUC: Measures the ability of the model to distinguish between classes (mistake vs. no mistake) for each category.
+- Precision-Recall AUC: Focuses on the trade-off between precision and recall, particularly useful for imbalanced datasets.
+- Training and Validation Metrics: Tracks the model's accuracy, precision, and recall during training and validation.
 
-## Getting Started 
+### Performance Summary
+| **Metric**          | **Training Value**  | **Validation Value**  |
+|:------------------  |:--------------------|:----------------------|
+| Accuracy            | 77.7%               | 72.4%                 |
+| Precision           | 78.2%               | 73.6%                 |
+| Recall              | 76.2%               | 72.5%                 |
+
+### AUC Scores by Mistake Type
+| **Mistake Type**    | **ROC AUC**  | **Precision-Recall AUC**  |
+|:------------------  |:-------------|:--------------------------|
+| Extra Note          | 91%          | 68%                       |
+| Missing Note        | 92%          | 72%                       |
+| Wrong Note          | 85%          | 70%                       |
+| No Mistake          | 100%         | 100%                      |
+
+## Usage
 ### ML Environtment Setup Guide:
 🚀 Set up your machine learning environment
 [Click here for machine learning Setup Guide](https://github.com/TCHWG/)
