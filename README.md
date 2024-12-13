@@ -14,11 +14,14 @@ Machine Learning (ML) is the core of AIRA, responsible for analyzing and evaluat
 ### Libraries and Frameworks
 | Library            | Functionality              |
 |:------------------:|:--------------------------|
-| TensorFlow         | Build and train neural network models           | 
-| Keras              | High-level API for neural network design        | 
-| Librosa & pretty_midi          | Audio feature extraction (pitch, chroma, tempo) | 
+| TensorFlow         | Deep learning and neural network development | 
+| Keras              | High-level API for neural network design     | 
+| scikit-learn       | Machine learning utilities                   | 
+| pretty_midi        | MIDI file processing | 
 | NumPy              | Numerical computations                          | 
 | Pandas             | Dataset manipulation and analysis               | 
+| Matplotlib         | Data visualization               | 
+| Seaborn            | Statistical data visualization               | 
 
 ## Dataset
 A custom synthetic dataset created using the [Twinkle Twinkle Little Star](https://musescore.com/juliathezhu/twinkle-twinkle-little-star-easy) to train the model and simulate piano mistake recognition. These methods are inspired by approaches outlined in the [paper](https://repositori.upf.edu/bitstream/handle/10230/60657/morsi_SMC_simu.pdf?sequence=1&isAllowed=y) and are applied to identify and correct musical mistakes.
