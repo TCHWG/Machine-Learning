@@ -60,7 +60,7 @@ The following metrics are used to evaluate the model's performance for each type
 ## Usage
 ### ML Environtment Setup Guide:
 🚀 Set up your machine learning environment
-[Click here for machine learning Setup Guide](https://github.com/TCHWG/)
+[Click here for machine learning Setup Guide](https://github.com/TCHWG/Machine-Learning/blob/main/setup.md)
 
 ## Potential Improvements
 - Implement cross-validation to enhance the model's robustness and prevent overfitting
