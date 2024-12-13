@@ -1,20 +1,19 @@
 # Machine Learning Setup Guide
 
 ## Table of Contents
-1. [Python Environment Setup](#python-environment-setup)
-2. [Virtual Environment Configuration]()
-3. [Package Installation]()
+1. [Requirements](#requirements)
+2. [Virtual Environment Configuration](#virtual-environment-configuration)
+3. [Package Installation](#package-installation)
+4. [Running the Code](#running-the-code)
 
-## Python Environment Setup
-
-### Requirements
+## Requirements
 - Python 3.9 or above
 - Tensorflow 2.12 or above
 - [Google Colaboratory](https://colab.research.google.com/) or [Jupyter Notebook](https://jupyter.org/install)
 
-### Installation Methods
+## Virtual Environment Configuration
 
-#### Option 1: Anaconda (Recommended)
+### Option 1: Anaconda (Recommended)
 ```bash
 # Download Anaconda from official website
 # Create new environment
@@ -22,7 +21,7 @@ conda create -n mlproject python=3.9
 conda activate mlproject
 ```
 
-#### Option 2: Python venv
+### Option 2: Python venv
 ```bash
 # Create virtual environment
 python3 -m venv mlenv
@@ -30,19 +29,19 @@ source mlenv/bin/activate  # On Unix/MacOS
 mlenv\Scripts\activate  # On Windows
 ```
 
-### Package Installation
+## Package Installation
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### GPU Support (Optional)
+### GPU Support (Optional)
 For TensorFlow GPU:
 ```bash
 pip install tensorflow-gpu
 ```
 
-### Running the Code
+## Running the Code
 1. Open the [.ipynb](https://github.com/TCHWG/Machine-Learning/blob/main/piano_mistake_generator.py) file in Google Colab or Jupyter Notebook: 
 2. Click `Copy to Drive` or Click `File > Save a copy` in Drive. This will allow you to run and edit the `.ipynb` file in your own Google Drive account
 3. If using the AIRA_dataset and models:
